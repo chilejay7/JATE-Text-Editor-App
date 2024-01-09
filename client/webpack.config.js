@@ -37,7 +37,8 @@ module.exports = () => {
           {
             src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
-            destination: path.join('assets', 'icon')
+            // The directory names were created to match the code included within the html document's image source attributes.
+            destination: path.join('assets', 'icons')
           }
         ]
       }),
