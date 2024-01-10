@@ -11,11 +11,14 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
     },
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
+      // The clean property has been added and set to true in order to remove files from previous builds performed during testing and maintain a cleaner
+      // code base for future development.
+      clean: true,
     },
     plugins: [
       // new WorkboxPlugin.GenerateSW(),
