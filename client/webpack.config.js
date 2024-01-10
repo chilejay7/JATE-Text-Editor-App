@@ -14,8 +14,10 @@ module.exports = () => {
       install: './src/js/install.js',
     },
     output: {
+      // Sets the name of the output file and the directory where the bundle will be saved.
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
+
       // The clean property has been added and set to true in order to remove files from previous builds performed during testing and maintain a cleaner
       // code base for future development.
       clean: true,
@@ -39,7 +41,10 @@ module.exports = () => {
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
+
+            // The sizes specified in this property will be output in the folder set in the destination property.
             sizes: [96, 128, 192, 256, 384, 512],
+
             // The directory names were created to match the code included within the html document's image source attributes.
             destination: path.join('assets', 'icons')
           }
