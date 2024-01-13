@@ -33,9 +33,29 @@ export const putDb = async (content) => {
 
   console.log('The data has been written to the jateDb', result);
 
-}
+};
 
 // TODO: Add logic for a method that gets all the content from the database
-export const getDb = async () => console.error('getDb not implemented');
+export const getDb = async () => {
+
+  console.log('Retrieving notes from the database');
+
+  // The connection with the local jate database is opened just as above.
+  const jateDb = await openDB('jate', 1);
+
+  // This transaction only requires read permissions to retrieve the data.
+  const transact = jateDb.transaction('jate', 'readonly');
+
+  // Opens the object store just as above.
+  const store = transact.objectStore('jate');
+
+  // We use the getAll() method to retrieve all notes from the local database.
+  const request = store.getAll();
+
+  // Confirmation of the transaction is required.
+  const result = await request;
+  console.log('result.value', result);
+  return result;
+};
 
 initdb();
