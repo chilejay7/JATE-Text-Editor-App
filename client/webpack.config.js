@@ -29,7 +29,7 @@ module.exports = () => {
         template: './index.html',
         title: 'JATE'
       }),
-      
+
       new WebpackPwaManifest({
         name: 'JATE',
         short_name: 'JATE',
@@ -57,6 +57,14 @@ module.exports = () => {
         {
           test: /\.css$/i,
           use: ['style-loader', 'css-loader']
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
+          generator: {
+            // keep original filenames and copy images to `dist/img/`
+            filename: 'assets/icons/logo.png', 
+          },
         }
       ],
     },
