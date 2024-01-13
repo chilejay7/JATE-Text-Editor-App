@@ -51,10 +51,14 @@ module.exports = () => {
             src: path.resolve('src/images/logo.png'),
 
             // The sizes specified in this property will be output in the folder set in the destination property.
-            sizes: [96, 128, 192, 256, 384, 512],
+            sizes: [96],
+
+            type: "image/png",
 
             // The directory names were created to match the code included within the html document's image source attributes.
-            destination: path.join('assets', 'icons')
+            destination: path.join('assets', 'icons'),
+
+            filename: "icon_96x96"
           }
         ]
       }),
@@ -71,10 +75,10 @@ module.exports = () => {
         {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
           type: 'asset/resource',
-          generator: {
-            // keep original filenames and copy images to `dist/img/`
-            filename: 'assets/icons/[size].png', 
-          },
+          // generator: {
+          //   // keep original filenames and copy images to `dist/img/`
+          //   filename: 'assets/icons/[size].png', 
+          // },
         },
         {
           test: /\.m?js$/,
