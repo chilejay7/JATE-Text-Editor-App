@@ -24,6 +24,10 @@ module.exports = () => {
       // code base for future development.
       clean: true,
     },
+    devServer: {
+      // This enables the hot module replacement API to allow changes to the front-end without a full page reload.
+      hot: 'only',
+    },
     plugins: [
       new GenerateSW(),
 
@@ -69,7 +73,7 @@ module.exports = () => {
           type: 'asset/resource',
           generator: {
             // keep original filenames and copy images to `dist/img/`
-            filename: 'assets/icons/logo.png', 
+            filename: 'assets/icons/[size].png', 
           },
         },
         {
