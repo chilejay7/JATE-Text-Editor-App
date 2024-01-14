@@ -31,8 +31,9 @@ module.exports = () => {
     plugins: [
       // The index.js file references the specific name of the service worker file and needs the property to avoid webpack using the deafult naming convention when bundled.
       // If left to use the default naming convention the application will not be able to reference the service worker file and will produce an error.
-      new GenerateSW({
-        swDest: 'src-sw.js'
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: './src-sw.js'
       }),
 
       new HtmlWebpackPlugin({
