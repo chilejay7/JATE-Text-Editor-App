@@ -20,6 +20,7 @@ const pageCache = new CacheFirst({
   ],
 });
 
+// Warming allows the content to be pre-loaded into the cache and served to the client faster.
 warmStrategyCache({
   urls: ['/index.html', '/'],
   strategy: pageCache,
