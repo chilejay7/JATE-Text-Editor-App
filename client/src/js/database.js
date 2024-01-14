@@ -25,8 +25,8 @@ export const putDb = async (content) => {
   // The object store needs to be opened to allow the transaction.
   const store = transact.objectStore('jate');
 
-  // The add method is being used to write the content passed to the application into the database.
-  const request = store.add({ content });
+  // The put method is being used to write the content passed to the application into the database.
+  const request = store.put({ id: 1, value: content });
 
   // We await the successful addition of the data to the local database.
   const result = await request;
@@ -54,8 +54,8 @@ export const getDb = async () => {
 
   // Confirmation of the transaction is required.
   const result = await request;
-  console.log('result.value', result);
-  return result;
+  console.log(result);
+  return result.value;
 };
 
 initdb();
