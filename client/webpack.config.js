@@ -29,7 +29,11 @@ module.exports = () => {
       hot: 'only',
     },
     plugins: [
-      new GenerateSW(),
+      // The index.js file references the specific name of the service worker file and needs the property to avoid webpack using the deafult naming convention when bundled.
+      // If left to use the default naming convention the application will not be able to reference the service worker file and will produce an error.
+      new GenerateSW({
+        swDest: 'src-sw.js'
+      }),
 
       new HtmlWebpackPlugin({
         template: './index.html',
@@ -51,14 +55,10 @@ module.exports = () => {
             src: path.resolve('src/images/logo.png'),
 
             // The sizes specified in this property will be output in the folder set in the destination property.
-            sizes: [96],
-
-            type: "image/png",
+            sizes: [96, 128, 192, 256, 384, 512],
 
             // The directory names were created to match the code included within the html document's image source attributes.
             destination: path.join('assets', 'icons'),
-
-            filename: "icon_96x96"
           }
         ]
       }),

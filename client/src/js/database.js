@@ -26,7 +26,7 @@ export const putDb = async (content) => {
   const store = transact.objectStore('jate');
 
   // The add method is being used to write the content passed to the application into the database.
-  const request = store.add({ note: content });
+  const request = store.add({ content });
 
   // We await the successful addition of the data to the local database.
   const result = await request;
