@@ -26,7 +26,7 @@ btnInstall.addEventListener('click', async (e) => {
             const result = await installPrompt.prompt();
             console.log(`Install prompt was: ${result.outcome}`)
             installPrompt = null;
-            btnInstall.classList.toggle('hidden', true);
+            // btnInstall.classList.toggle('hidden', true);
             btnInstall.textContent = 'Installed';
         } catch (error) {
             console.error('Error during installation:', error);
@@ -48,5 +48,7 @@ btnInstall.addEventListener('click', async (e) => {
 // TODO: Add an handler for the `appinstalled` event
 window.addEventListener('appinstalled', (e) => {
     console.log('The application has successfully been installed on your Desktop!', 'appInstalled', e);
-    window.deferredPrompt = null;
+    // window.deferredPrompt = null;
+    installPrompt = null;
 });
+
