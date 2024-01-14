@@ -7,6 +7,7 @@ const { precacheAndRoute } = require('workbox-precaching/precacheAndRoute');
 
 precacheAndRoute(self.__WB_MANIFEST);
 
+// The Cache Fisrt strategy allows for other pages to be added to the cache as needed.
 const pageCache = new CacheFirst({
   cacheName: 'page-cache',
   plugins: [
