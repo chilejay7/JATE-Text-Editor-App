@@ -40,10 +40,6 @@ registerRoute(
       new CacheableResponsePlugin({
         statuses: [0, 200],
       }),
-      new ExpirationPlugin({
-              maxAgeSeconds: 60 * 60 * 24 * 30,
-              maxEntries: 10,
-            })
     ],
   })
 );
