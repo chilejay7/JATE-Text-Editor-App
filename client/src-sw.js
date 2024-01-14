@@ -27,7 +27,9 @@ warmStrategyCache({
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
-
+// The route uses the first statement to determine which type of request has been made: style, script, or worker.
+// Stale While Revalidate tries to serve from the cache first, falls back to network if not available, while trying to update version in cache from network if possible.
+// Will only cache good responses with the defined status.
 registerRoute(
   ({ request }) => ["style", "script", "worker"].includes(request.destination),
   new StaleWhileRevalidate({
