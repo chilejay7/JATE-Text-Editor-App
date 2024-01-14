@@ -5,9 +5,6 @@ const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 const { GenerateSW } = require('workbox-webpack-plugin');
 
-// TODO: Add and configure workbox plugins for a service worker and manifest file.
-// TODO: Add CSS loaders and babel to webpack.
-
 module.exports = () => {
   return {
     mode: 'development',
@@ -29,10 +26,10 @@ module.exports = () => {
       hot: 'only',
     },
     plugins: [
-      // The index.js file references the specific name of the service worker file and needs the property to avoid webpack using the deafult naming convention when bundled.
-      // If left to use the default naming convention the application will not be able to reference the service worker file and will produce an error.
-      new GenerateSW({
-        swDest: 'src-sw.js'
+      // This injects the specified assets into the service worker file.  Both files will use the same name.
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: './src-sw.js'
       }),
 
       new HtmlWebpackPlugin({
@@ -52,6 +49,7 @@ module.exports = () => {
         publicPath: './',
         // This property avoids a hash being added to the filename when bundled.  The name was causing an error related to the icon files in the navbar.
         fingerprints: false,
+        display: 'browser',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
@@ -77,10 +75,6 @@ module.exports = () => {
         {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
           type: 'asset/resource',
-          // generator: {
-          //   // keep original filenames and copy images to `dist/img/`
-          //   filename: 'assets/icons/[size].png', 
-          // },
         },
         {
           test: /\.m?js$/,
