@@ -34,4 +34,4 @@ const assetCache = new CacheFirst({
   ]
 })
 
-registerRoute(({ request }) => );
+registerRoute(({ request }) => {});

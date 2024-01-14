@@ -52,6 +52,7 @@ module.exports = () => {
         publicPath: './',
         // This property avoids a hash being added to the filename when bundled.  The name was causing an error related to the icon files in the navbar.
         fingerprints: false,
+        display: 'browser',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
@@ -77,10 +78,6 @@ module.exports = () => {
         {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
           type: 'asset/resource',
-          // generator: {
-          //   // keep original filenames and copy images to `dist/img/`
-          //   filename: 'assets/icons/[size].png', 
-          // },
         },
         {
           test: /\.m?js$/,
