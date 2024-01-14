@@ -50,6 +50,7 @@ module.exports = () => {
         theme_color: '#1fd4d4',
         start_url: './',
         publicPath: './',
+        // This property avoids a hash being added to the filename when bundled.  The name was causing an error related to the icon files in the navbar.
         fingerprints: false,
         icons: [
           {
