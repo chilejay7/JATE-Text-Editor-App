@@ -49,16 +49,22 @@ module.exports = () => {
         publicPath: './',
         // This property avoids a hash being added to the filename when bundled.  The name was causing an error related to the icon files in the navbar.
         fingerprints: false,
-        display: 'browser',
+
+        // This property is required for installation.  Other options such as "fullscreen" can also be used.
+        display: 'standalone',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
 
             // The sizes specified in this property will be output in the folder set in the destination property.
-            sizes: [96, 128, 192, 256, 384, 512],
+            // The 144 size icon is required for installation.
+            sizes: [96, 128, 144, 192, 256, 384, 512],
 
             // The directory names were created to match the code included within the html document's image source attributes.
             destination: path.join('assets', 'icons'),
+
+            // The purpose property is not required, but has to be set to "any" to allow for installation if included.
+            purpose: 'any',
           }
         ]
       }),
