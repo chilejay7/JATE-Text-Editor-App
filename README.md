@@ -2,7 +2,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-JATE is a text editor web application that allows users to create notes or code snippets with or without an internet connection. JATE is a progressive web application (PWA), which has the advantage of allowing users, among other features, to install the application on their local device. 
+JATE is a text editor web application that allows users to create notes or code snippets with or without an internet connection. JATE is a progressive web application (PWA), which has the advantage of allowing users, among other features, to install the application on their local device.
+
+![JATE application](./jate.png)
 
 ## Table of Contents
 
@@ -14,7 +16,7 @@ JATE is a text editor web application that allows users to create notes or code 
 ## Installation
 No installation is required to use the application.  The application has been deployed to Heroku and can be accessed at the following URL: [JATE Heroku Application](https://jate-text-note-taker-10b2e09c48a4.herokuapp.com/)
 
-If a developer would like to access the underlying code utilized to create the application, it can be installed by cloning the repository to the local machine.  Please note, `node.js` is required in order to run this application and will need to be installed before attempting to use the code.  The package dependencies are included within the package.json file and can be installed through a simple `npm i` command once the repository has been successfully cloned on the local computer.  Upon opening the application in your editor, you should see a well-organized client-server folder structure.
+If a developer would like to access the underlying code utilized to create the application, it can be installed by cloning the repository to the local machine.  Please note, `node.js` is required in order to run this application and will need to be installed before attempting to use the code.  The package dependencies are included within the package.json file and can be installed through a simple `npm i` command once the repository has been successfully cloned on the local computer.  Upon opening the application in the editor, the developer should see a well-organized client-server folder structure.
 
 ## Usage
 To start the application and bundle all modules, open the terminal and navigate to the root directory.  The application can be initialized using the `npm run start` command to start the backend and serve the client.  This command will also bundle the files specified within the webpack.config.js file using webpack.  The included plugins within the webpack configuration file will generate HTML, service worker, and manifest files. The application can be accessed locally through `http://localhost:5000`.
