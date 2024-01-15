@@ -34,7 +34,8 @@ module.exports = () => {
 
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'JATE'
+        title: 'JATE',
+        favicon: './favicon.ico'
       }),
 
       new MiniCssExtractPlugin(),
@@ -65,7 +66,7 @@ module.exports = () => {
 
             // The purpose property is not required, but has to be set to "any" to allow for installation if included.
             purpose: 'any',
-          }
+          },
         ]
       }),
     ],
@@ -79,7 +80,7 @@ module.exports = () => {
           use: [MiniCssExtractPlugin.loader, 'css-loader']
         },
         {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
           type: 'asset/resource',
         },
         {
