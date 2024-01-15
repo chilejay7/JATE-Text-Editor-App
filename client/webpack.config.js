@@ -64,7 +64,7 @@ module.exports = () => {
             destination: path.join('assets', 'icons'),
 
             // The purpose property is not required, but has to be set to "any" to allow for installation if included.
-            purpsoe: 'any',
+            purpose: 'any',
           }
         ]
       }),
