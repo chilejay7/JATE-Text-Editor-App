@@ -3,7 +3,6 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
-const { GenerateSW } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
@@ -32,14 +31,20 @@ module.exports = () => {
         swDest: './src-sw.js'
       }),
 
+      // This plugin includes the HTML file in the bundle and provides the path to the file as well as the favicon.
+      // The title of the application is set 
       new HtmlWebpackPlugin({
         template: './index.html',
         title: 'JATE',
         favicon: './favicon.ico'
       }),
 
+      // This plugin extracts the CSS into separate files instead of bundling it with other JavaScript files.
+      // The rules are further defined below.
       new MiniCssExtractPlugin(),
 
+      // This plugin is required to generate the manifest for the application and provide metadata to the browser.
+      // The manifest file and its information can be found in the Application module of the dev tools in the browser.
       new WebpackPwaManifest({
         name: 'JATE',
         short_name: 'JATE',
@@ -83,6 +88,8 @@ module.exports = () => {
           test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
           type: 'asset/resource',
         },
+        // The babel loader is used to transpile JavaScript files, excluding the node_modules directory.
+        // This transpiles the code into a format that will be compatible with a wide range of browsers.
         {
           test: /\.m?js$/,
           exclude: /node_modules/,
