@@ -42,3 +42,7 @@ registerRoute(
     ],
   })
 );
+
+offlineFallback({
+  pageFallback: '/jate_offline.html',
+});
