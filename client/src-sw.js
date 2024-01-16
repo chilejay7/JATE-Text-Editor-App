@@ -44,5 +44,5 @@ registerRoute(
 );
 
 offlineFallback({
-  pageFallback: '/jate_offline.html',
+  pageFallback: '/index.html',
 });
