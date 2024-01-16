@@ -88,6 +88,8 @@ module.exports = () => {
           test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
           type: 'asset/resource',
         },
+        // The babel loader is used to transpile JavaScript files, excluding the node_modules directory.
+        // This transpiles the code into a format that will be compatible with a wide range of browsers.
         {
           test: /\.m?js$/,
           exclude: /node_modules/,
