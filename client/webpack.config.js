@@ -3,6 +3,7 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
@@ -28,7 +29,7 @@ module.exports = () => {
       // This injects the specified assets into the service worker file.  Both files will use the same name.
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: './src-sw.js'
+        swDest: './src-sw.js',
       }),
 
       // This plugin includes the HTML file in the bundle and provides the path to the file as well as the favicon.
